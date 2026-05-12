@@ -1,0 +1,42 @@
+Ideas:
+
+Imagen grande de la sala (fondo)
+
+Titulo:
+    Nombre de la Sala
+
+Pequeña información general de la página
+
+Descripción de las actividades, 
+    tarjetas que ocupen el 100% de la página para promocionar cada actividad
+
+footer:
+    en proceso
+
+
+
+Campos de la bbdd ( cómo no se separarlos los tengo en esta lista )
+
+Tabla-Persona/Usuario
+id
+Nombre
+Apellido1
+Apellido2
+Correo
+Contraseña
+Curso: 1º Bach, 1ºESO
+curso_id
+
+Tabla-Cursos:
+id
+nombre_curso
+descripción
+
+Tabla-Reservas
+id
+persona_id
+fecha_reserva
+hora_reservada
+estado
+creada_en
+actualizada_en
