@@ -25,8 +25,8 @@ CREATE TABLE Reserva (
     ID_reservas INT PRIMARY KEY,
     Fecha_reservada DATE,
     Hora_reservada VARCHAR(10),
-    id_usuario INT,
-    id_curso INT
+    id_usuario INT,  /* Foreing key -> Usuario */
+    id_curso INT /* Foreing key -> Curso */
 );
 
 -- Adición de las claves foráneas a la tabla Reserva
