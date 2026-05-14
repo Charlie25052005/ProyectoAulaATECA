@@ -4,6 +4,7 @@
     --bg-text: #ffff9f;
     --color-txt-header: #000;
     --bg-button: #0000B1;
+    --bg-video: #4646FF;
 
     --R1: 4px;
     --R2: 8px;
@@ -62,8 +63,12 @@ header {
     height: 400px;
     background-color: var(--bg-text);
 
+    h1 {
+        font-size: 50px;
+    }
+
     p {
-        width: 100%;
+        width: 95%;
         max-width: 600px;
     }
 
@@ -74,11 +79,23 @@ header {
 .seccion_informativa {
     article {
         display: flex;
-        border: solid;
-        margin: 10px auto;
+        margin: 50px auto;
+        border-radius: 10px ;
+        overflow: hidden ;
 
-        * {
-            flex: 1;
+        video {
+            flex: 7;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+            padding: 10px;
+            flex: 3;
+            background-color: var(--bg-video);
+            color: #fff ;
         }
 
         @media screen and (max-width: 600px) {
@@ -87,7 +104,6 @@ header {
             }
 
         }
-
 
     }
 
@@ -99,9 +115,10 @@ header {
 
     }
 
+
 }
 
 
 footer {
-    color: #fff ;
+    color: #fff;
 }
