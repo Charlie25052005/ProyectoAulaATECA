@@ -47,6 +47,7 @@ header {
         border: none;
         padding: 10px;
         cursor: pointer;
+        font-weight: bolder;
     }
 
 }
@@ -80,8 +81,8 @@ header {
     article {
         display: flex;
         margin: 50px auto;
-        border-radius: 10px ;
-        overflow: hidden ;
+        border-radius: 10px;
+        overflow: hidden;
 
         video {
             flex: 7;
@@ -95,7 +96,7 @@ header {
             padding: 10px;
             flex: 3;
             background-color: var(--bg-video);
-            color: #fff ;
+            color: #fff;
         }
 
         @media screen and (max-width: 600px) {
@@ -106,6 +107,8 @@ header {
         }
 
     }
+
+    /* Responsive sección informativa 2 */
 
     @media screen and (max-width: 600px) {
 
@@ -118,6 +121,8 @@ header {
 
 }
 
+
+/* Footer Page */
 
 footer {
     color: #fff;
