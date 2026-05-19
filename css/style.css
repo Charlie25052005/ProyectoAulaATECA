@@ -1,5 +1,7 @@
 :root {
 
+    /* Variables */
+
     --bg-header: #AAAA00;
     --bg-text: #ffff9f;
     --color-txt-header: #000;
@@ -28,9 +30,9 @@ body {
 }
 
 .container {
-    max-width: 1000px ;
-    width: 100% ;
-    margin: 0 auto ;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* Cabecera */
@@ -107,7 +109,7 @@ header {
             color: #fff;
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 999px) {
             & {
                 flex-direction: column;
             }
@@ -118,7 +120,12 @@ header {
 
     /* Responsive sección informativa 2 */
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 999px) {
+
+        & {
+            width: 90%;
+            margin: 0 auto;
+        }
 
         .seccion_informativa_actividad_2 {
             flex-direction: column-reverse;
@@ -133,5 +140,21 @@ header {
 /* Footer Page */
 
 footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     color: #fff;
+    background-color: #888;
+    padding: 10px;
+
+    a {
+        color: lime;
+        text-decoration: none;
+    }
+
+    hr {
+        padding: 10px ;
+        border: solid 4px black ;
+    }
+
 }
