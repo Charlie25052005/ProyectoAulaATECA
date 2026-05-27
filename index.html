@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="jquery/jquery-3.7.1.min.js"></script>
     <script src="js/script.js"></script>
     <title>Aula ATECA</title>
 </head>
@@ -15,8 +17,60 @@
 
         <header>
             <img src="img/Logo.jpg">
-            <button>Iniciar Sesión</button>
+            <button popovertarget="modal">Iniciar Sesión</button>
         </header>
+
+        <dialog id="modal" class="modal" popover="auto">
+            <header class="headerModal">
+                <h1>Iniciar Sesión</h1>
+                <button popovertarget="modal">X</button>
+            </header>
+            <main class="bodyModal">
+                <label>Correo
+                    <input placeholder="Introduce correo..." type="text">
+                </label>
+                <label>Contraseña
+                    <input placeholder="Introduce contraseña..." type="password">
+                </label>
+                <label>
+                    <input type="checkbox">
+                    Recordar usuario y contraseña
+                </label>
+                <button class="btn-login">Iniciar Sesión</button>
+            </main>
+            <footer class="footerModal">
+                <p>Si no tienes cuenta puedes <button class="boton-registrar">registrarte</button> </p>
+            </footer>
+        </dialog>
+
+        <dialog id="modalRegistrar" class="modal" popover="auto">
+            <header class="headerModal">
+                <h1>Registrarse</h1>
+                <button popovertarget="modalRegistrar">X</button>
+            </header>
+            <main class="bodyModal">
+                <label>Nombre
+                    <input placeholder="Introduce nombre..." type="text">
+                </label>
+                <label>Apellido1
+                    <input placeholder="Introduce apellido1..." type="text">
+                </label>
+                <label>Apellido2
+                    <input placeholder="Introduce apellido2..." type="text">
+                </label>
+                <label>Correo
+                    <input placeholder="Introduce correo..." type="text">
+                </label>
+                <label>Contraseña
+                    <input placeholder="Introduce contraseña..." type="text">
+                </label>
+                <select class="cursos">
+                    <option selected disabled> Selecciona Curso </option>
+                </select>
+                <button class="btn-registrarse">Registrate</button>
+            </main>
+            <div class="footerModal"></div>
+        </dialog>
 
         <section class="seccion_introduccion">
             <h1>Aula TECA</h1>
@@ -43,11 +97,16 @@
                         una temperatura y presión controladas durante unos segundos. El resultado es un acabado duradero
                         y
                         de alta calidad</p>
+                    <a href="">Ver info</a>
                 </div>
-                <video controls></video>
+                <video
+                    src="video/Lady Gaga - How Bad Do U Want Me (MAYHEM Requiem - Apple Music Live) - Die With A Smile - 1 Year (1080p, h264, youtube).mp4"
+                    controls muted></video>
             </article>
             <article class="seccion_informativa_actividad_2">
-                <video controls></video>
+                <video
+                    src="video/Lady Gaga - How Bad Do U Want Me (MAYHEM Requiem - Apple Music Live) - Die With A Smile - 1 Year (1080p, h264, youtube).mp4"
+                    controls muted></video>
                 <div>
                     <h4>Máquina de estampado de camisetas</h4>
                     <p>Esta máquina permite personalizar camisetas mediante la aplicación de diseños impresos sobre tela
@@ -59,6 +118,7 @@
                         una temperatura y presión controladas durante unos segundos. El resultado es un acabado duradero
                         y
                         de alta calidad</p>
+                    <a href="">Ver info</a>
                 </div>
             </article>
             <article class="seccion_informativa_actividad_3">
@@ -73,17 +133,23 @@
                         una temperatura y presión controladas durante unos segundos. El resultado es un acabado duradero
                         y
                         de alta calidad</p>
+                    <a href="">Ver info</a>
                 </div>
-                <video controls></video>
+                <video
+                    src="video/Lady Gaga - How Bad Do U Want Me (MAYHEM Requiem - Apple Music Live) - Die With A Smile - 1 Year (1080p, h264, youtube).mp4"
+                    controls muted></video>
             </article>
 
         </section>
 
+
         <footer>
-            <h3>Aula TECA - IES Arroyo Harnina</h3>
+            <h4>Aula TECA - IES Arroyo Harnina</h4>
             <p>Calle X, Pueblo Almendralejo</p>
-            <p>Tel: <a href="tel:+34 924017778">924 01 77 78</a></p>
-            <p>Correo: <a href="mailto:ies.arroyoharnina@edu.juntaextremadura.es">ies.arroyoharnina@edu.juntaextremadura.es</a></p>
+            <p>Tel: <a class="tel" href="tel:+34 924017778"> 934 01 77 78 </a></p>
+            <p>Correo: <a class="tel"
+                    href="mailto:ies.arroyoharnina@edu.juntaex.es">ies.arroyoharnina@edu.juntaex.es</a></p>
+
             <p>Lunes a Viernes de 8:00 - 14:00</p>
             <p>© 2026 - Proyecto DAW2</p>
         </footer>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/reservas.css">
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <script src="../js/reservas.js"></script>
+    <title>Reservas</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <img srcset="../img/Logo.jpg" />
+            <button popovertarget="modal_perfil" class="btn-perfil">Perfil</button>
+        </header>
+
+        <dialog class="modal_Reservas" id="modal_perfil" popover="auto">
+            <h1>N</h1>
+            <button class="btn-cerrarSesion">Cerrar Sesión</button>
+        </dialog>
+
+        <section>
+            <button class="btn-verReservas" popovertarget="modal1">Ver todas las reservas</button>
+            <aside>
+
+                <input type="date" id="fecha">
+
+                <table>
+
+                    <tr>
+                        <td>1º</td>
+                        <td>
+                            <span class="estado">Libre</span>
+                        </td>
+                        <td><button value="1" class="btn-reservar">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>2º</td>
+                        <td>
+                            <span class="estado"> Libre </span>
+                        </td>
+                        <td><button value="2" class="btn-reservar">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>3º</td>
+                        <td>
+                            <span class="estado"> Libre </span>
+                        </td>
+                        <td><button value="3" class="btn-reservar">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>4º</td>
+                        <td>
+                            <span class="estado"> Libre </span>
+                        </td>
+                        <td><button value="4" class="btn-reservar">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>5º</td>
+                        <td>
+                            <span class="estado"> Libre </span>
+                        </td>
+                        <td><button value="5" class="btn-reservar">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>6º</td>
+                        <td>
+                            <span class="estado"> Libre </span>
+                        </td>
+                        <td><button value="6" class="btn-reservar">Reservar</button></td>
+                    </tr>
+
+                </table>
+
+            </aside>
+        </section>
+
+
+        <div popover="auto" id="modal1">
+            <div class="modal">
+                <h1>Reservas realizadas</h1>
+                <div id="resultado"></div>
+                <button popovertarget="modal1">Cerrar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

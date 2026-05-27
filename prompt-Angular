@@ -1,0 +1,3 @@
+tengo una API creada con SQL Server Management de una libreria, tengo visual studio preparado con los permisos para angular porque me han mandado a realizar una tienda online con mi API de libreria, ahora una duda que me surge es para poder hacer una simulación de una tienda con localstorage es decir, traerme los datos más importantes que sería la parte de libros y cargarlas en localstorage y trabajar directamente con localstorage + usuarios (admin, usuario normal y invitado)
+después de leer esta información responde a la siguiente pregunta
+¿ sería viable hacerlo ?

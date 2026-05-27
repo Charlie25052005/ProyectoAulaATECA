@@ -1,0 +1,157 @@
+:root {
+    /*Variables*/
+    --bg-header: #AAAA00;
+    --bg-text: #ffff9f;
+    --color-txt-header: #000;
+    --bg-button: #0000B1;
+    --bg-video: #4646FF;
+    --bg-input-color: #444;
+    --bg-reservado: #00b000;
+
+    --R1: 4px;
+    --R2: 8px;
+    --R3: 12px;
+    --R4: 16px;
+
+}
+
+table {
+    border: solid 4px #fff;
+    max-width: 800px;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    border-collapse: collapse;
+
+    tr td {
+        border: solid 4px #000;
+        padding: 10px;
+    }
+
+    tr {
+        &:nth-child(odd) {
+            background-color: green;
+        }
+
+        &:nth-child(even) {
+            background-color: lightgreen;
+        }
+
+        button {
+            background-color: tomato;
+            color: #fff;
+            font-size: 13pt;
+            border: none;
+            padding: 10px;
+            max-width: 200px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        span {
+            display: inline-block;
+            background-color: var(--bg-video);
+            color: #fff;
+            padding: 10px;
+            max-width: 200px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        span.reservado {
+            background-color: goldenrod;
+        }
+
+        button.reservado {
+            background-color: var(--bg-reservado);
+        }
+
+
+    }
+
+}
+
+
+.btn-verReservas {
+    border: none;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: tomato;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type="date"] {
+    background-color: goldenrod;
+    border: none;
+    border-radius: 10px;
+    max-width: 200px;
+    width: 100%;
+    padding: 10px;
+}
+
+@media screen and (max-width:999px) {
+    section {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+.btn-perfil {
+    max-width: 100px;
+    width: 100%;
+}
+
+#modal1 {
+    background-color: transparent;
+    border: none ;
+    margin: 10px auto ;
+    width: 100% ;
+    &::backdrop {
+        background-color:  rgba(120, 120, 120, .5);
+    }
+}
+
+.modal {
+    display: flex;
+    text-align: center;
+    gap: 20px;
+    padding: 10px;
+    max-height: 400px;
+    max-width: 600px ;
+    width: 100% ;
+
+    button {
+        background-color: var(--bg-header);
+        border: none;
+        padding: 10px;
+        color: #fff;
+        font-size: 15pt;
+        border-radius: var(--R2);
+        cursor: pointer;
+    }
+}
+
+#resultado {
+    overflow-x: scroll;
+}
+
+#resultado div {
+    display: flex;
+    color: #fff;
+
+    p {
+        border: solid;
+        flex: 1;
+        padding: 10px;
+    }
+}
+
+#resultado div:nth-child(odd){
+    background-color: green;
+}
+
+#resultado div:nth-child(even){
+    background-color: rgb(79, 193, 149);
+}

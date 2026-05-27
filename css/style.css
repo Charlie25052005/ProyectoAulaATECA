@@ -1,7 +1,5 @@
 :root {
-
-    /* Variables */
-
+    /*Variables*/
     --bg-header: #AAAA00;
     --bg-text: #ffff9f;
     --color-txt-header: #000;
@@ -26,13 +24,15 @@
 
 body {
     background-color: #444;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Arial, Helvetica, sans-serif ;
 }
 
 .container {
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
+    max-width: 1000px ;
+    width: 100% ;
+    margin: 0 auto ;
+    border-radius: var(--R4) ;
+    overflow: hidden;
 }
 
 /* Cabecera */
@@ -90,12 +90,14 @@ header {
 .seccion_informativa {
     article {
         display: flex;
+        align-items: stretch ;
         margin: 50px auto;
         border-radius: 10px;
         overflow: hidden;
 
         video {
-            flex: 7;
+            width: 100% ;
+            height: 100% ;
         }
 
         div {
@@ -104,9 +106,17 @@ header {
             text-align: center;
             gap: 10px;
             padding: 10px;
-            flex: 3;
+            width: 100% ;
             background-color: var(--bg-video);
             color: #fff;
+        }
+
+        a {
+            text-decoration: none ;
+            color: #fff ;
+            background-color: #be24e1;
+            padding: 10px ;
+            border-radius: var(--R2) ;
         }
 
         @media screen and (max-width: 999px) {
@@ -123,8 +133,8 @@ header {
     @media screen and (max-width: 999px) {
 
         & {
-            width: 90%;
-            margin: 0 auto;
+            width: 90% ;
+            margin: 0 auto ;
         }
 
         .seccion_informativa_actividad_2 {
@@ -141,20 +151,15 @@ header {
 
 footer {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column ;
+    gap: 10px ;
     color: #fff;
+    padding: 10px ;
     background-color: #888;
-    padding: 10px;
 
-    a {
-        color: lime;
-        text-decoration: none;
-    }
-
-    hr {
-        padding: 10px ;
-        border: solid 4px black ;
+    .tel {
+        text-decoration: none ;
+        color: #9f0 ;
     }
 
 }
