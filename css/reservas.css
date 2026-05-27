@@ -15,6 +15,22 @@
 
 }
 
+.container {
+    position: relative;
+}
+
+header {
+    position: relative;
+    flex-direction: row-reverse ;
+}
+
+#modal_perfil {
+    position: absolute;
+    right: auto;
+    left: auto ;
+    margin: 10px auto ;
+}
+
 table {
     border: solid 4px #fff;
     max-width: 800px;

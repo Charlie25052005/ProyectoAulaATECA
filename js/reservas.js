@@ -17,54 +17,52 @@ $(function () {
         reservar()
     })
 
-    const arrayReservas = []
-    let obj = {}
     $(document).on('click', '.btn-reservar', function () {
         const fecha = $("#fecha").val()
 
-        const elemento = $(this).closest(`table tr:nth-child( ${$(this).val()} )`)
-
-        if (fecha != "") {
-            console.log(elemento);
-            elemento.find("span").addClass("reservado").html("Reservado")
-            $(this).html("Reservado").addClass("reservado")
-        } else {
+        if (!fecha) {
             alert("Debes elegir una fecha")
             mostrarDecoradoElTexto("Error fecha vacia: Debes elegir una fecha")
             return
         }
 
-        obj = { hora: $(this).val(), fecha: fecha }
-        arrayReservas.push(obj)
+        const hora = $(this).val()
+        const elemento = $(this).closest(`table tr:nth-child( ${$(this).val()} )`)
+        elemento.find("span").addClass("reservado").html("Reservado")
+        $(this).html("Reservado").addClass("reservado").attr("disabled", true)
 
-        $(this).attr("disabled", true)
-        if (localStorage.getItem(fecha) == null) {
-            localStorage.setItem(fecha, JSON.stringify(arrayReservas))
-        } else {
-            const array = JSON.parse(localStorage.getItem(fecha))
-            array.push(obj)
-            localStorage.setItem(fecha, JSON.stringify(array))
-        }
-        alert("Reserva realizada correctamente")
+
+        const obj = { hora:hora, fecha:fecha }
+        const arrayReservas = JSON.parse(localStorage.getItem(fecha)) ?? []
+
+        arrayReservas.push(obj)
+        localStorage.setItem( fecha,JSON.stringify(arrayReservas) )
+
     })
 
     $(".btn-verReservas").on('click', function () {
         let cadena = ""
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i)
-            const array = JSON.parse(localStorage.getItem(key))
-            for ( const valor of array ) {
-                cadena += tarjetaReservas(valor)
+        if (localStorage.length > 0) {
+
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i)
+                const array = JSON.parse(localStorage.getItem(key)) != null
+                    ? JSON.parse(localStorage.getItem(key))
+                    : []
+                for (const valor of array) {
+                    cadena += tarjetaReservas(valor)
+                }
             }
-        }
-        $("#resultado").empty()
-        $("#resultado").html( `
+            $("#resultado").empty()
+            $("#resultado").html(`
             <div>
                 <p>Nombre de usuario</p>
                 <p>Fecha Reservada</p>
                 <p>Hora reservada</p>
             </div>` )
-        $("#resultado").append(cadena)
+            $("#resultado").append(cadena)
+        }
     })
 
     // al cerrar sesión primero borrar toda la información del 
@@ -94,7 +92,7 @@ function mostrarDecoradoElTexto(texto = "") {
     console.log(`%c${texto.toUpperCase()}`, "color: #fff ; background-color: tomato ; width: 100% ; padding: 10px ; display:block; text-align: center ; font-size: 30pt ; font-family: 'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif ' ; ");
 }
 
-function tarjetaReservas(obj){
+function tarjetaReservas(obj) {
     return `
     <div>
         <p>Usuario - X</p>
