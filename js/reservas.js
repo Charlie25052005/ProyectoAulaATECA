@@ -12,37 +12,42 @@ $(function () {
         $("#modal_perfil h1").html(letra.toUpperCase())
     }
 
-
-    reservar()
-
     $("#fecha").on('change', function () {
-        $("table tr").each((indice, elemento) => {
-            $(elemento).find("span").removeClass("reservado").html("Libre")
-            $(elemento).find("button").removeClass("reservado").html("Reservar").attr("disabled", false)
-        })
-        reservar()
+        const obj = {
+            fecha: $(this).val()
+        }
+        limpiarTabla()
+        verHoraDeFechaReservada(obj)
     })
 
-    $(document).on('click', '.btn-reservar', function () {
-        const fecha = $("#fecha").val()
 
-        if (!fecha) {
-            alert("Debes elegir una fecha")
-            mostrarDecoradoElTexto("Error fecha vacia: Debes elegir una fecha")
+
+    $(document).on('click', '.btn-reservar', function () {
+        let obj = ""
+        if (sessionStorage.getItem("user") != null) {
+            obj = JSON.parse(sessionStorage.getItem("user"))
+        }
+
+        const fecha_reservada = $("#fecha").val()
+        const hora_reservada = $(this).val()
+        const id_usuario = parseInt(obj.id)
+        const id_curso = 1
+
+        if (fecha_reservada == '') {
+            alert("Debes seleccionar una fecha")
             return
         }
 
-        const hora = $(this).val()
-        const elemento = $(this).closest(`table tr:nth-child( ${$(this).val()} )`)
-        elemento.find("span").addClass("reservado").html("Reservado")
-        $(this).html("Reservado").addClass("reservado").attr("disabled", true)
+        const obj_enviar = {
+            fecha_reservada: fecha_reservada,
+            hora_reservada: hora_reservada,
+            id_usuario: id_usuario,
+            id_curso: id_curso
+        }
 
+        console.log(obj_enviar);
 
-        const obj = { hora: hora, fecha: fecha }
-        const arrayReservas = JSON.parse(localStorage.getItem(fecha)) ?? []
-
-        arrayReservas.push(obj)
-        localStorage.setItem(fecha, JSON.stringify(arrayReservas))
+        reservarAula(obj_enviar)
 
     })
 
@@ -79,23 +84,8 @@ $(function () {
         location.href = "../index.html"
     })
 
+
 })
-
-function reservar() {
-    const array = JSON.parse(localStorage.getItem($("#fecha").val()))
-
-    if (array != null) {
-        array.forEach(e => {
-            const elemento = $(`table tr:nth-child( ${e.hora} )`)
-            elemento.find("button").attr("disabled", true).addClass("reservado").html("Reservado")
-            elemento.find("span").addClass("reservado").html("Reservado")
-        })
-    }
-}
-
-function mostrarDecoradoElTexto(texto = "") {
-    console.log(`%c${texto.toUpperCase()}`, "color: #fff ; background-color: tomato ; width: 100% ; padding: 10px ; display:block; text-align: center ; font-size: 30pt ; font-family: 'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif ' ; ");
-}
 
 function tarjetaReservas(obj) {
     return `
@@ -106,4 +96,56 @@ function tarjetaReservas(obj) {
     </div>`
 }
 
-function reservarAula(obj) { }
+function reservarAula(obj = {}) {
+    $.ajax({
+        url: "../php/reservar.php",
+        method: "POST",
+        data: obj,
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
+            if (response.success == true) {
+                const hora = obj.hora_reservada
+                const elemento = $(`table tr:nth-child(${hora})`)
+                elemento.find("span").html("Reservado").addClass("reservado")
+                elemento.find("button").html("Reservado").addClass("reservado").attr("disabled", true)
+                alert(response.message)
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+
+function verHoraDeFechaReservada(obj = { fecha: "" }) {
+    $.ajax({
+        url: "../php/verFechasReservadas.php",
+        method: "POST",
+        data: obj,
+        success: function (respuesta) {
+            console.log(respuesta);
+            const array = respuesta
+            if (array.length > 0) {
+                array.forEach(e => {
+                    const hora = parseInt(e.hora)
+                    const elemento = $(`table tr:nth-child(${hora})`)
+                    console.log(elemento);
+                    elemento.find("span").addClass("reservado").html("Reservado")
+                    elemento.find("button").addClass("reservado").html("Reservado").attr("disabled", true)
+                });
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+
+function limpiarTabla() {
+    const array = $("table tr")
+    for ( const valor of array ) {
+        $(valor).find("span").removeClass("reservado").html("libre")
+        $(valor).find("button").removeClass("reservado").html("Reservar").attr("disabled",false)
+    }
+}
