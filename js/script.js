@@ -1,14 +1,30 @@
 $(function () {
-    $('.boton-registrar').on('click', function () {
-        const modalLogin = $(this).closest("#modal")
-        const modalRegistrar = $("#modalRegistrar")
-        console.log(modal);
-        modalLogin[0].hidePopover()
-        modalRegistrar[0].showPopover()
-    })
 
-    $(".btn-login").on('click',function(){
-        location.href = "../webs/reservas.html"
+    $(".btn-login").on('click', function () {
+        const passwd = $("#passwd").val()
+        const correo = $("#correo").val()
+
+        alert(passwd + " " + correo)
+        // location.href = "webs/reservas.html"
+        login({
+            passwd,
+            correo
+        })
     })
 
 })
+
+function login(obj = {}) {
+    $.ajax({
+        url: "php/login.php",
+        method: "POST",
+        data: obj,
+        dataType: "json",
+        success: function (respuesta) {
+            console.log(respuesta);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
