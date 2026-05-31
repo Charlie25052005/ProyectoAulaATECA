@@ -4,11 +4,10 @@ $(function () {
         const passwd = $("#passwd").val()
         const correo = $("#correo").val()
 
-        alert(passwd + " " + correo)
         // location.href = "webs/reservas.html"
         login({
-            passwd:passwd,
-            email:correo,
+            passwd: passwd,
+            email: correo,
         })
     })
 
@@ -21,7 +20,11 @@ function login(obj = {}) {
         data: obj,
         dataType: "json",
         success: function (respuesta) {
-            console.log(respuesta);
+            console.log(respuesta)
+            if ( respuesta.success == true ) {
+                sessionStorage.setItem("user",JSON.stringify(respuesta.user))
+                location.href = "webs/reservas.html"
+            }
         },
         error: function (error) {
             console.log(error);

@@ -21,14 +21,15 @@
 
 header {
     position: relative;
-    flex-direction: row-reverse ;
+    flex-direction: row ;
 }
 
 #modal_perfil {
     position: absolute;
-    right: auto;
-    left: auto ;
     margin: 10px auto ;
+    &::backdrop {
+        background-color: rgba(120,120,120,.5);
+    }
 }
 
 table {

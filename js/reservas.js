@@ -6,6 +6,12 @@ $(function () {
 
     inputDate.attr("min", hoy)
 
+    const obj = JSON.parse(sessionStorage.getItem("user"))
+    if (obj != false) {
+        const letra = obj.nombre[0]
+        $("#modal_perfil h1").html(letra.toUpperCase())
+    }
+
 
     reservar()
 
@@ -32,11 +38,11 @@ $(function () {
         $(this).html("Reservado").addClass("reservado").attr("disabled", true)
 
 
-        const obj = { hora:hora, fecha:fecha }
+        const obj = { hora: hora, fecha: fecha }
         const arrayReservas = JSON.parse(localStorage.getItem(fecha)) ?? []
 
         arrayReservas.push(obj)
-        localStorage.setItem( fecha,JSON.stringify(arrayReservas) )
+        localStorage.setItem(fecha, JSON.stringify(arrayReservas))
 
     })
 
@@ -69,7 +75,7 @@ $(function () {
     // login de usuario y después redirigir a la página principal
 
     $(".btn-cerrarSesion").on('click', function () {
-        localStorage.clear()
+        sessionStorage.clear()
         location.href = "../index.html"
     })
 
@@ -100,4 +106,4 @@ function tarjetaReservas(obj) {
     </div>`
 }
 
-function reservarAula(obj) {}
+function reservarAula(obj) { }
