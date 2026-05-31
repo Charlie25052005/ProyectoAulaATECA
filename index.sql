@@ -1,8 +1,8 @@
 -- Creación de la base de datos
-CREATE DATABASE MiBaseDeDatos;
+CREATE DATABASE mibasededatos;
 
 -- Selección de la base de datos para usarla
-USE MiBaseDeDatos;
+USE mibasededatos;
 
 -- Creación de la tabla Usuarios
 CREATE TABLE Usuarios (

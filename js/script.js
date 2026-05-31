@@ -7,8 +7,8 @@ $(function () {
         alert(passwd + " " + correo)
         // location.href = "webs/reservas.html"
         login({
-            passwd,
-            correo
+            passwd:passwd,
+            email:correo,
         })
     })
 
