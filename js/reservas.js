@@ -73,7 +73,6 @@ $(function () {
         location.href = "../index.html"
     })
 
-
 })
 
 function reservar() {
@@ -99,4 +98,6 @@ function tarjetaReservas(obj) {
         <p>${obj.fecha}</p>
         <p>${obj.hora}</p>
     </div>`
-} 
+}
+
+function reservarAula(obj) {}
