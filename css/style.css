@@ -24,14 +24,14 @@
 
 body {
     background-color: #444;
-    font-family: Arial, Helvetica, sans-serif ;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-    max-width: 1000px ;
-    width: 100% ;
-    margin: 0 auto ;
-    border-radius: var(--R4) ;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: var(--R4);
     overflow: hidden;
 }
 
@@ -90,14 +90,14 @@ header {
 .seccion_informativa {
     article {
         display: flex;
-        align-items: stretch ;
+        align-items: stretch;
         margin: 50px auto;
         border-radius: 10px;
         overflow: hidden;
 
         video {
-            width: 100% ;
-            height: 100% ;
+            width: 100%;
+            max-width: 600px;
         }
 
         div {
@@ -106,22 +106,27 @@ header {
             text-align: center;
             gap: 10px;
             padding: 10px;
-            width: 100% ;
+            width: 100%;
+            flex: 8;
             background-color: var(--bg-video);
             color: #fff;
         }
 
         a {
-            text-decoration: none ;
-            color: #fff ;
+            text-decoration: none;
+            color: #fff;
             background-color: #be24e1;
-            padding: 10px ;
-            border-radius: var(--R2) ;
+            padding: 10px;
+            border-radius: var(--R2);
         }
 
         @media screen and (max-width: 999px) {
             & {
                 flex-direction: column;
+
+                video {
+                    max-width: 100%;
+                }
             }
 
         }
@@ -133,8 +138,8 @@ header {
     @media screen and (max-width: 999px) {
 
         & {
-            width: 90% ;
-            margin: 0 auto ;
+            width: 90%;
+            margin: 0 auto;
         }
 
         .seccion_informativa_actividad_2 {
@@ -151,15 +156,15 @@ header {
 
 footer {
     display: flex;
-    flex-direction: column ;
-    gap: 10px ;
+    flex-direction: column;
+    gap: 10px;
     color: #fff;
-    padding: 10px ;
+    padding: 10px;
     background-color: #888;
 
     .tel {
-        text-decoration: none ;
-        color: #9f0 ;
+        text-decoration: none;
+        color: #9f0;
     }
 
 }

@@ -10,6 +10,7 @@ $(function () {
     if (obj != false) {
         const letra = obj.nombre[0]
         $("#modal_perfil h1").html(letra.toUpperCase())
+        $("#modal_perfil p.nombre").html(obj.nombre).css({ "padding": "10px" })
     }
 
     $("#fecha").on('change', function () {
@@ -52,28 +53,7 @@ $(function () {
     })
 
     $(".btn-verReservas").on('click', function () {
-        let cadena = ""
-        if (localStorage.length > 0) {
-
-
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i)
-                const array = JSON.parse(localStorage.getItem(key)) != null
-                    ? JSON.parse(localStorage.getItem(key))
-                    : []
-                for (const valor of array) {
-                    cadena += tarjetaReservas(valor)
-                }
-            }
-            $("#resultado").empty()
-            $("#resultado").html(`
-            <div>
-                <p>Nombre de usuario</p>
-                <p>Fecha Reservada</p>
-                <p>Hora reservada</p>
-            </div>` )
-            $("#resultado").append(cadena)
-        }
+        mostrarFechas()
     })
 
     // al cerrar sesión primero borrar toda la información del 
@@ -85,16 +65,25 @@ $(function () {
     })
 
 
-})
 
-function tarjetaReservas(obj) {
-    return `
-    <div>
-        <p>Usuario - X</p>
-        <p>${obj.fecha}</p>
-        <p>${obj.hora}</p>
-    </div>`
-}
+    $(".btn-filtrar").on('click', function () {
+        const padre = $("#filtros")
+        const hora = padre.find("select#hora").val()
+        const fecha = padre.find("#fecha_filtro").val()
+        const fecha_reservada = fecha
+        const hora_reservada = hora
+        if (fecha != "") {
+            filtrarReservas({
+                fecha_reservada,
+                hora_reservada
+            })
+        } else {
+            alert("Debes seleccionar una fecha para poder filtrar")
+        }
+    })
+
+
+})
 
 function reservarAula(obj = {}) {
     $.ajax({
@@ -103,7 +92,6 @@ function reservarAula(obj = {}) {
         data: obj,
         dataType: "json",
         success: function (response) {
-            console.log(response);
             if (response.success == true) {
                 const hora = obj.hora_reservada
                 const elemento = $(`table tr:nth-child(${hora})`)
@@ -124,7 +112,6 @@ function verHoraDeFechaReservada(obj = { fecha: "" }) {
         method: "POST",
         data: obj,
         success: function (respuesta) {
-            console.log(respuesta);
             const array = respuesta
             if (array.length > 0) {
                 array.forEach(e => {
@@ -144,8 +131,78 @@ function verHoraDeFechaReservada(obj = { fecha: "" }) {
 
 function limpiarTabla() {
     const array = $("table tr")
-    for ( const valor of array ) {
+    for (const valor of array) {
         $(valor).find("span").removeClass("reservado").html("libre")
-        $(valor).find("button").removeClass("reservado").html("Reservar").attr("disabled",false)
+        $(valor).find("button").removeClass("reservado").html("Reservar").attr("disabled", false)
     }
+}
+
+function mostrarFechas() {
+    $.ajax({
+        url: "../php/mostrarReservas.php",
+        method: "POST",
+        dataType: "json",
+        success: function (response) {
+            const array = response
+            let cadena = ""
+            $("#resultado").empty()
+            array.forEach(e => {
+                const objeto = {
+                    nombre: e.nombres,
+                    fecha: formatDate(e.fecha),
+                    hora: e.hora + "º"
+                }
+                cadena += tarjetaReservas(objeto)
+            });
+            $("#resultado").append(cadena)
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    })
+}
+
+function formatDate(fecha = "") {
+    const date = fecha.split("-")
+    const año = date[0]
+    const mes = date[1]
+    const dia = date[2]
+
+    return `${dia}/${mes}/${año}`
+}
+
+function tarjetaReservas(obj = {}) {
+    return `
+    <div>
+        <p>${obj.nombre}</p>
+        <p>${obj.fecha}</p>
+        <p>${obj.hora}</p>
+    </div>`
+}
+
+function filtrarReservas(obj = {}) {
+    $.ajax({
+        url: "../php/filtrarFechas.php",
+        data: obj,
+        method: "POST",
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
+            const array = response
+            $("#resultado").empty()
+            let cadena = ""
+            array.forEach(e => {
+                const objeto = {
+                    nombre: e.nombre,
+                    fecha: formatDate(e.fecha),
+                    hora: e.hora + "º"
+                }
+                cadena += tarjetaReservas(objeto)
+            });
+            $("#resultado").append(cadena)
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
 }

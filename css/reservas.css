@@ -21,14 +21,16 @@
 
 header {
     position: relative;
-    flex-direction: row ;
+    flex-direction: row;
 }
 
 #modal_perfil {
     position: absolute;
-    margin: 10px auto ;
+    margin: 10px auto;
+    color: #fff;
+
     &::backdrop {
-        background-color: rgba(120,120,120,.5);
+        background-color: rgba(120, 120, 120, .5);
     }
 }
 
@@ -122,11 +124,12 @@ input[type="date"] {
 
 #modal1 {
     background-color: transparent;
-    border: none ;
-    margin: 10px auto ;
-    width: 100% ;
+    border: none;
+    margin: 10px auto;
+    width: 100%;
+
     &::backdrop {
-        background-color:  rgba(120, 120, 120, .5);
+        background-color: rgba(120, 120, 120, .5);
     }
 }
 
@@ -136,8 +139,8 @@ input[type="date"] {
     gap: 20px;
     padding: 10px;
     max-height: 400px;
-    max-width: 600px ;
-    width: 100% ;
+    max-width: 600px;
+    width: 100%;
 
     button {
         background-color: var(--bg-header);
@@ -165,10 +168,25 @@ input[type="date"] {
     }
 }
 
-#resultado div:nth-child(odd){
+#resultado div:nth-child(odd) {
     background-color: green;
 }
 
-#resultado div:nth-child(even){
+#resultado div:nth-child(even) {
     background-color: rgb(79, 193, 149);
+}
+
+#filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    select {
+        border: none;
+        outline: none;
+        padding: 10px;
+        border-radius: var(--R2);
+        background-color: var(--bg-header);
+        color: #fff ;
+    }
 }

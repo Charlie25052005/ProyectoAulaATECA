@@ -20,6 +20,7 @@
             <img srcset="../img/Logo.jpg" />
             <dialog class="modal_Reservas" id="modal_perfil" popover="auto">
                 <h1></h1>
+                <p class="nombre"></p>
                 <button class="btn-cerrarSesion">Cerrar Sesión</button>
             </dialog>
         </header>
@@ -85,6 +86,21 @@
         <div popover="auto" id="modal1">
             <div class="modal">
                 <h1>Reservas realizadas</h1>
+                <div id="filtros">
+                    <input type="date" id="fecha_filtro">
+                    <p>Selecciona hora
+                        <select id="hora">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </p>
+                    <button class="btn-filtrar">Filtrar</button>
+                </div>
                 <div id="resultado"></div>
                 <button popovertarget="modal1">Cerrar</button>
             </div>
