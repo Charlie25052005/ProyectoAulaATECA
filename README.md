@@ -16,7 +16,8 @@ Esta app está diseñada para poder reservar el Aula Llamada TECA a cualquier ho
 ## 2.- Requisitos
  
  Tener Instalado [***XAMPP***](https://www.apachefriends.org/download.html) y haberte descargado el proyecto [***repositorio de github***](https://github.com/Charlie25052005/ProyectoAulaATECA.git).
- En el manual de instalación explico como instalar **XAMPP**
+
+ En el [manual de instalación](/pdf/Manual_de_instalación.pdf) explico como instalar **XAMPP**
 
 ## 3.- Instalación
 
