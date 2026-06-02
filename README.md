@@ -31,4 +31,5 @@ Esta app está diseñada para poder reservar el Aula Llamada TECA a cualquier ho
 ## Mejoras
 
 Posibles mejoras de la app:
+
  - Optimización en otros navegadores
