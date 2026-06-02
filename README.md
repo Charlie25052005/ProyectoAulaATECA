@@ -5,6 +5,7 @@
 2. [Requisitos](#requisitos)
 3. [Instalación](#instalación)
 4. [Estructura de archivos](#estructura-de-archivos)
+5. [Mejoras](#mejoras)
 ---
 
 ## 1.- Descripción
@@ -26,3 +27,8 @@ Esta app está diseñada para poder reservar el Aula Llamada TECA a cualquier ho
 ## 4.- Estructura de Archivos
 
 [**Ver estructura del proyecto**](/Estructura.txt)
+
+## Mejoras
+
+Posibles mejoras de la app:
+ - Optimización en otros navegadores
