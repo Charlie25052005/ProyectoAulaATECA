@@ -3273,5 +3273,3 @@
     └── script
         ├── index.js
         └── obtenerSensores.js
-
-156 directories, 3119 files
