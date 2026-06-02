@@ -46,8 +46,6 @@ $(function () {
             id_curso: id_curso
         }
 
-        console.log(obj_enviar);
-
         reservarAula(obj_enviar)
 
     })
@@ -86,6 +84,7 @@ $(function () {
 })
 
 function reservarAula(obj = {}) {
+    console.log("se le ha enviado", obj);
     $.ajax({
         url: "../php/reservar.php",
         method: "POST",
