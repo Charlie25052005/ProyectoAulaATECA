@@ -22,7 +22,6 @@ $(function () {
     })
 
 
-
     $(document).on('click', '.btn-reservar', function () {
         let obj = ""
         if (sessionStorage.getItem("user") != null) {
@@ -79,7 +78,6 @@ $(function () {
             alert("Debes seleccionar una fecha para poder filtrar")
         }
     })
-
 
 })
 
