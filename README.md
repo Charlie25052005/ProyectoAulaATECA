@@ -5,7 +5,8 @@
 2. [Requisitos](#requisitos)
 3. [Instalación](#instalación)
 4. [Estructura de archivos](#estructura-de-archivos)
-5. [Mejoras](#mejoras)
+5. [Tecnologias Utilizadas](#tecnologias)
+6. [Mejoras](#mejoras)
 ---
 
 ## 1.- Descripción
@@ -28,7 +29,19 @@ Esta app está diseñada para poder reservar el Aula Llamada TECA a cualquier ho
 
 [**Ver estructura del proyecto**](/Estructura.txt)
 
-## Mejoras
+## 5.- Tecnologías Utilizadas
+
+Las tecnologías utilizadas en esta app son:
+    - HTML
+    - CSS
+    - JS (Jquery)
+    - SQL
+
+     HTML y CSS para la parte visual
+     JS para conexión con base de datos tanto envio como descarga de datos
+     SQL para la creación y manejo de la base de datos
+
+## 6.- Mejoras
 
 Posibles mejoras de la app:
 
