@@ -46,3 +46,4 @@ Las tecnologías utilizadas en esta app son:
 Posibles mejoras de la app:
 
  - Optimización en otros navegadores
+ - Añadir usuario administrador para futuros registros
